@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Socket.IO Draw</title>
+    <style>
+    
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script> 
+    
+   
+   <!--- <script src="https://code.jquery.com/jquery-1.11.1.js"></script> !--->
+  </head>
+  <body>
+  <!--
+    <ul id="messages"></ul>
+    <form action="">
+     <input id="n" autocomplete="off" placeholder="Name:" />
+      <input id="m" autocomplete="off" placeholder="Message:" /><button>Send</button>
+    </form>
+    !--->
+    
+     <script type="text/javascript" src="sketch.js"></script>
+<script>
+
+
+/*
+  $(function () {
+	
+	var curMousePos = {x: -1, y: -1};
+	
+    var socket = io();
+    var Msg, Nick;
+    
+    var mouseDown = false;
+	
+	$(document).mousedown (function(event) {
+    
+        mouseDown = true;
+        socket.emit("mouseDown", 1);
+
+	});
+    
+    $(document).mousemove (function(event) {
+    
+        if(mouseDown == false)
+
+            return;
+        
+        curMousePos.x = event.pageX;
+		curMousePos.y = event.pageY;
+		socket.emit("mouse", curMousePos);		
+		//$('#messages').append($('<li>').text(curMousePos.x +" : " + curMousePos.y));
+        
+        
+    });
+    
+    $(document).mouseup(function(){
+        mouseDown = false;
+        socket.emit("mouseDown",0);
+    });
+	
+    $('form').submit(function(e){
+      e.preventDefault(); // prevents page reloading
+      socket.emit('chat message', $('#m').val());
+      socket.emit('nickname', $('#n').val());
+	 // socket.emit('nickname', '');
+     // $('#n').val('');
+      $('#m').val('');
+      return false;
+    });
+    socket.on('chat message', function(msg){
+    
+        Msg = msg
+     
+     });
+    socket.on('nickname', function(msg2){
+    
+           Nick = msg2;
+            $('#messages').append($('<li>').text(Nick +": " + Msg));
+     });
+    
+  });*/
+</script>
+  </body>
+</html>
