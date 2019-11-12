@@ -32,9 +32,11 @@ function draw(){
    
    image(capture, 0, 0, 320, 240);
    
+   push();
    fill(255,0,0);
    noStroke();
    ellipse(mouseXs, mouseYs, 15, 15);
+   pop();
     
 }
 
