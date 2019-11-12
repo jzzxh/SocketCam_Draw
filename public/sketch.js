@@ -27,6 +27,8 @@ function draw(){
    }
    
    image(capture, 0, 0, 320, 240);
+   
+   ellipse(0, 0, 15, 15);
     
 }
 
