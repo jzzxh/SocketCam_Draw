@@ -6,7 +6,7 @@ var capture;
 function setup(){
     createCanvas(400, 400);
     //background(0);
-    socket = io.connect('http://192.168.31.148:3000');
+    socket = io.connect('https://jzzxhsocket.herokuapp.com/');
     
     capture =  createCapture({
     audio: false,

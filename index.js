@@ -14,7 +14,7 @@ function listen(){
     console.log('app listening at http://' + host + ':' + port);
 }*/
 
-http.listen(3000,'192.168.31.148',function(){
+http.listen(process.env.PORT || 3000,function(){
   console.log('listening on *:3000');
 });
 
