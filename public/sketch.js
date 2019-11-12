@@ -3,6 +3,10 @@ var socket;
 var touch_state = 0;
 var capture;
 
+var mouseXs;
+var mouseYs;
+
+
 function setup(){
     createCanvas(400, 400);
     //background(0);
@@ -28,7 +32,9 @@ function draw(){
    
    image(capture, 0, 0, 320, 240);
    
-   ellipse(0, 0, 15, 15);
+   fill(255,0,0);
+   noStroke();
+   ellipse(mouseXs, mouseYs, 15, 15);
     
 }
 
@@ -49,10 +55,11 @@ function touchEnded(){
 }
 
 function touchMoved() {
+    
+    mouseXs = mouseX;
+    mouseYs = mouseY;
 
-    fill(255,0,0);
-    noStroke();
-    ellipse(mouseX, mouseY, 15, 15);
+    //ellipse(mouseX, mouseY, 15, 15);
     sendmouse(int(mouseX),int(mouseY));
   // prevent default
   return false;
