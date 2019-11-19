@@ -15,8 +15,8 @@ function setup(){
    // createCanvas(400, 400);
     createCanvas(windowWidth, windowHeight);
     background(235);
-   // socket = io.connect('https://jzzxhsocket.herokuapp.com/');
-    socket = io.connect('http://192.168.0.108:3000');
+    socket = io.connect('https://jzzxhsocket.herokuapp.com/');
+    //socket = io.connect('http://192.168.0.108:3000');
     
     
     cR = random(100,255);
