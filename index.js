@@ -4,6 +4,9 @@ var app = express();
 
 var http = require('http').createServer(app);
 
+var s_id;
+
+var allClients = new Set();
 /*
 var server = app.listen(process.env.PORT || 3000,"127.0.0.1",listen);
 
@@ -32,35 +35,57 @@ app.get('/',function(req,res){
 
 
 io.on('connection', function(socket){
-    //console.log('a user connected');
+    
+    
+     allClients.add(socket.id);
+    
+     console.log('Connect ID: ' + socket.id);
+      
+     s_id = socket.id;
    
-   socket.on('chat message' , function(msg){
-       // console.log('message:  ' + msg);
-       io.emit('chat message', msg);
+     io.emit('connectID',JSON.stringify(Array.from(allClients)));
      
-   });
-      socket.on('nickname' , function(msg2){
-       // console.log('message:  ' + msg);
-       io.emit('nickname', msg2);
-     
-   });
+     console.log("connectID: " + JSON.stringify(Array.from(allClients)));
+    
     socket.on('mouse' , function(msg3){
+        
+        var data = {
+          x: msg3.x,
+          y: msg3.y,
+          id: s_id,
+          r: msg3.r,
+          g: msg3.g,
+          b: msg3.b
+        };
        
-       io.emit('mouse', msg3);
+       io.emit('mouse', data);
+       
+     //  console.log(msg3.r);
 	   //console.log('x: ' + msg3.x + ", y: "+ msg3.y);
    });
     socket.on('mouseDown' , function(msg4){
        
        io.emit('mouseDown', msg4);
+     
 	  // console.log('x: ' + msg3.x + ", y: "+ msg3.y);
    });
     socket.on('mousetouch' , function(msg5){
        
        io.emit('mousetouch', msg5);
-	  // console.log('x: ' + msg5.x + ", y: "+ msg5.y);
+	   //console.log('x: ' + msg5.x + ", y: "+ msg5.y);
+	  
    });   
       
-   
+   socket.on('disconnect', function(){
+        
+        allClients.delete(socket.id);
+        
+        io.emit('connectID',JSON.stringify(Array.from(allClients)));
+        
+        console.log("Disconnect ID: " + socket.id);
+        console.log("connectID: " + JSON.stringify(Array.from(allClients)));
+       
+   });
    
 });
 
