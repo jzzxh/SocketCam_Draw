@@ -75,6 +75,15 @@ io.on('connection', function(socket){
 	   //console.log('x: ' + msg5.x + ", y: "+ msg5.y);
 	  
    });   
+   
+   
+    socket.on('image64' , function(msg){
+       
+       io.emit('image64', msg);
+       
+	   console.log('Base64: '+ msg);
+	  
+   });     
       
    socket.on('disconnect', function(){
         
